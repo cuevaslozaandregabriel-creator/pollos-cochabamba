@@ -1,0 +1,214 @@
+/* ==========================================================================
+   RESET Y REGLAS FUNDAMENTALES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tipografía fluida dinámica usando clamp() sin @media */
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(0.95rem, 0.8rem + 0.5vw, 1.25rem);
+    line-height: 1.6;
+    background-color: #f4f6f9;
+    color: #1a1a2e;
+}
+
+body {
+    /* Limitamos el ancho con min() y centramos con margin-inline */
+    width: min(92%, 75ch);
+    margin-inline: auto;
+    padding-block: clamp(1rem, 3vw, 3rem);
+}
+
+/* ==========================================================================
+   ENCABEZADOS Y TIPOGRAFÍA FLUIDA
+   ========================================================================== */
+h1 {
+    font-size: clamp(1.6rem, 1rem + 2vw, 2.5rem);
+    color: #d32f2f;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: clamp(1.3rem, 0.9rem + 1.2vw, 1.8rem);
+    color: #b71c1c;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 0.3rem;
+}
+
+h3 {
+    font-size: clamp(1.1rem, 0.9rem + 0.6vw, 1.4rem);
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+mark {
+    background-color: #ffeb3b;
+    color: #000;
+    padding: 0.1em 0.3em;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE CONTENEDORES (SIN FLEX / SIN GRID)
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    padding: clamp(1.2rem, 3vw, 2.5rem);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    border-left: 6px solid #d32f2f;
+}
+
+main {
+    display: block;
+    width: 100%;
+}
+
+section {
+    display: block;
+    background-color: #ffffff;
+    padding: clamp(1rem, 2.5vw, 2rem);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* 
+   TÉCNICA RESPONSIVA SIN FLEX/GRID NI MEDIA QUERIES:
+   Uso de display: inline-block con calc() y min() para columnas fluidas.
+*/
+.columna-fluida {
+    display: inline-block;
+    vertical-align: top;
+    width: min(100%, 31%);
+    margin-right: 2%;
+    margin-bottom: 1.5rem;
+    background-color: #fffde7;
+    padding: 0.8rem;
+    border: 1px solid #fff59d;
+    border-radius: 6px;
+}
+
+.columna-fluida:last-of-type {
+    margin-right: 0;
+}
+
+/* ==========================================================================
+   IMÁGENES Y MULTIMEDIA SEMÁNTICA (<figure> / <figcaption> / <iframe>)
+   ========================================================================== */
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+figcaption {
+    font-size: 0.85em;
+    color: #555555;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+iframe {
+    width: 100%;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   INTERACTIVIDAD NATIVA (<details> / <summary>)
+   ========================================================================== */
+details {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    margin-top: 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+details[open] {
+    background-color: #fff8e1;
+    border-color: #ffa000;
+}
+
+summary {
+    font-weight: bold;
+    color: #b71c1c;
+    cursor: pointer;
+    outline: none;
+    padding: 0.2rem 0;
+}
+
+summary:hover,
+summary:focus {
+    color: #d32f2f;
+}
+
+details p {
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    color: #424242;
+}
+
+/* ==========================================================================
+   GLOSARIO Y LISTAS SEMÁNTICAS (<dl>, <dt>, <dd>)
+   ========================================================================== */
+dl {
+    display: block;
+}
+
+dt {
+    font-weight: bold;
+    color: #b71c1c;
+    margin-top: 1rem;
+}
+
+dd {
+    margin-left: 1rem;
+    margin-bottom: 0.8rem;
+    color: #424242;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+footer {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85em;
+    color: #757575;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 3rem;
+}
